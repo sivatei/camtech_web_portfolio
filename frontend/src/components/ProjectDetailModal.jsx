@@ -22,12 +22,6 @@ export default function ProjectDetailModal({ project, onClose }) {
               muted
               playsInline
             />
-          ) : project.imageUrl ? (
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
           ) : (
             /* Big Project Initial */
             <span

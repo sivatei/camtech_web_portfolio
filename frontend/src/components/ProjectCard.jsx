@@ -17,7 +17,13 @@ export default function ProjectCard({ project, isAdmin, onEdit, onDelete, onClic
       <div
         className={`relative h-36 bg-gradient-to-br ${gradient} flex items-center justify-center overflow-hidden border-b border-slate-200/40`}
       >
-        {project.videoUrl ? (
+        {project.imageUrl ? (
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : project.videoUrl ? (
           <video
             ref={(el) => { if (el) el.playbackRate = 2.0; }}
             src={project.videoUrl}
@@ -26,12 +32,6 @@ export default function ProjectCard({ project, isAdmin, onEdit, onDelete, onClic
             loop
             muted
             playsInline
-          />
-        ) : project.imageUrl ? (
-          <img
-            src={project.imageUrl}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <>
