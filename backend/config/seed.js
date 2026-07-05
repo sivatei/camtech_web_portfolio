@@ -13,6 +13,7 @@ const projects = [
     description:
       "An interactive frontend-only website for food course receipt generation, covering course choices, pricing calculations, and invoice display.",
     techStack: ["React", "Tailwind CSS"],
+    videoUrl: "/food-receipt.mp4",
     githubUrl: "",
     liveUrl: "",
     role: "Solo Project",
@@ -24,6 +25,7 @@ const projects = [
     description:
       "A responsive shopping website storefront mockup showcasing catalog listing, product detail views, and a fully client-side checkout experience.",
     techStack: ["React", "Tailwind CSS"],
+    videoUrl: "/skincare.mp4",
     githubUrl: "",
     liveUrl: "",
     role: "Solo Project",
@@ -35,6 +37,7 @@ const projects = [
     description:
       "Served as the UX/UI designer for the team project. Designed wireframes in Figma and collaborated on building high-fidelity layout components with React and Tailwind CSS.",
     techStack: ["Figma", "React", "Tailwind CSS"],
+    imageUrl: "/internship.png",
     githubUrl: "",
     liveUrl: "",
     role: "Team Designer",
@@ -69,6 +72,7 @@ const projects = [
     description:
       "Designed an intuitive UX/UI prototype for a bus ticketing mobile application. Created schedule search interfaces, dynamic seat layout maps, and checkout checkout flows in Figma to ensure a friction-free booking journey.",
     techStack: ["Figma", "UX/UI Design", "Prototyping"],
+    imageUrl: "/bus-ticket-booking.png",
     githubUrl: "",
     liveUrl: "",
     role: "UX/UI Designer",
