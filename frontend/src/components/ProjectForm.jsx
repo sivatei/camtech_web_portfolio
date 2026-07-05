@@ -7,6 +7,7 @@ const emptyForm = {
   role: "",
   githubUrl: "",
   liveUrl: "",
+  imageUrls: "",
 };
 
 export default function ProjectForm({ initialProject, onSubmit, onCancel, submitting }) {
@@ -18,6 +19,7 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
         title: initialProject.title || "",
         description: initialProject.description || "",
         techStack: (initialProject.techStack || []).join(", "),
+        imageUrls: (initialProject.imageUrls || []).join(", "),
         role: initialProject.role || "",
         githubUrl: initialProject.githubUrl || "",
         liveUrl: initialProject.liveUrl || "",
@@ -39,6 +41,12 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
         .split(",")
         .map((t) => t.trim())
         .filter(Boolean),
+      imageUrls: form.imageUrls
+        ? form.imageUrls
+            .split(",")
+            .map((t) => t.trim())
+            .filter(Boolean)
+        : [],
     });
   }
 
@@ -116,6 +124,17 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
             className="input-field"
           />
         </div>
+      </div>
+
+      <div>
+        <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">Image URLs (comma separated)</label>
+        <input
+          name="imageUrls"
+          value={form.imageUrls}
+          onChange={handleChange}
+          placeholder="/img1.png, /img2.png"
+          className="input-field"
+        />
       </div>
 
       <div className="flex gap-3 pt-2">

@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
     description: { type: String, required: true, trim: true },
     techStack: { type: [String], default: [] },
     imageUrl: { type: String, default: "" },
+    imageUrls: { type: [String], default: [] },
     videoUrl: { type: String, default: "" },
     githubUrl: { type: String, default: "" },
     liveUrl: { type: String, default: "" },

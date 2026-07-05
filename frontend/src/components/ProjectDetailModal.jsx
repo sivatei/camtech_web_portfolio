@@ -1,4 +1,21 @@
+import { useState, useEffect } from "react";
+
 export default function ProjectDetailModal({ project, onClose }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const displayImages = project?.imageUrls?.length === 2 
+    ? [...project.imageUrls, ...project.imageUrls] 
+    : (project?.imageUrls || []);
+
+  useEffect(() => {
+    if (project && displayImages.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % displayImages.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [project]);
+
   if (!project) return null;
 
   return (
@@ -12,15 +29,47 @@ export default function ProjectDetailModal({ project, onClose }) {
       >
         {/* Banner with gradient or Image (taller h-56) */}
         <div className="relative h-40 sm:h-56 bg-gradient-to-br from-[#090d16] to-[#0c1a2e] flex items-center justify-center border-b border-white/10 overflow-hidden">
-          {project.videoUrl ? (
+          {displayImages.length > 0 ? (
+            <>
+              {displayImages.map((url, i) => {
+                let positionClass = "translate-x-full opacity-0 z-0 transition-none";
+                if (i === currentSlide) {
+                  positionClass = "translate-x-0 opacity-100 z-20 transition-all duration-700 ease-in-out";
+                } else if (i === (currentSlide === 0 ? displayImages.length - 1 : currentSlide - 1)) {
+                  positionClass = "-translate-x-full opacity-100 z-10 transition-all duration-700 ease-in-out";
+                }
+                return (
+                  <img
+                    key={i}
+                    src={url}
+                    alt={`${project.title} slide ${i}`}
+                    className={`absolute inset-0 w-full h-full object-cover ${positionClass}`}
+                  />
+                );
+              })}
+              {project.imageUrls.length > 1 && (
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+                  {project.imageUrls.map((_, i) => (
+                    <div key={i} className={`h-1.5 w-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? "bg-white w-3" : "bg-white/40"}`} />
+                  ))}
+                </div>
+              )}
+            </>
+          ) : project.videoUrl ? (
             <video
               ref={(el) => { if (el) el.playbackRate = 2.0; }}
               src={project.videoUrl}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               autoPlay
               loop
               muted
               playsInline
+            />
+          ) : project.imageUrl ? (
+            <img
+              src={project.imageUrl}
+              alt={project.title}
+              className="w-full h-full object-contain"
             />
           ) : (
             /* Big Project Initial */

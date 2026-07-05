@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 const CARD_GRADIENTS = [
   "from-[#eff6ff] via-[#dbeafe] to-[#f8fafc]", // Soft blue
   "from-[#f5f3ff] via-[#ede9fe] to-[#f8fafc]", // Soft indigo
@@ -7,6 +9,20 @@ const CARD_GRADIENTS = [
 
 export default function ProjectCard({ project, isAdmin, onEdit, onDelete, onClick, index = 0 }) {
   const gradient = CARD_GRADIENTS[index % CARD_GRADIENTS.length];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const displayImages = project.imageUrls?.length === 2 
+    ? [...project.imageUrls, ...project.imageUrls] 
+    : (project.imageUrls || []);
+
+  useEffect(() => {
+    if (displayImages.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % displayImages.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [project.imageUrls]);
 
   return (
     <article
@@ -17,7 +33,26 @@ export default function ProjectCard({ project, isAdmin, onEdit, onDelete, onClic
       <div
         className={`relative h-36 bg-gradient-to-br ${gradient} flex items-center justify-center overflow-hidden border-b border-slate-200/40`}
       >
-        {project.imageUrl ? (
+        {displayImages.length > 0 ? (
+          <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-105">
+            {displayImages.map((url, i) => {
+              let positionClass = "translate-x-full opacity-0 z-0 transition-none";
+              if (i === currentSlide) {
+                positionClass = "translate-x-0 opacity-100 z-20 transition-all duration-700 ease-in-out";
+              } else if (i === (currentSlide === 0 ? displayImages.length - 1 : currentSlide - 1)) {
+                positionClass = "-translate-x-full opacity-100 z-10 transition-all duration-700 ease-in-out";
+              }
+              return (
+                <img
+                  key={i}
+                  src={url}
+                  alt={`${project.title} slide ${i}`}
+                  className={`absolute inset-0 w-full h-full object-cover ${positionClass}`}
+                />
+              );
+            })}
+          </div>
+        ) : project.imageUrl ? (
           <img
             src={project.imageUrl}
             alt={project.title}
