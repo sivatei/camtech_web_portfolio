@@ -53,10 +53,11 @@ const projects = [
     order: 4,
   },
   {
-    title: "Supermarket Mobile App Design",
+    title: "Anywhere Beauty App Design",
     description:
-      "Designed a comprehensive UX/UI prototype for a modern supermarket shopping mobile application. Conducted user research, wireframing, high-fidelity mockups, and interactive prototype flows in Figma to minimize cart abandonment.",
+      "Designed a comprehensive UX/UI prototype for a modern beauty shopping mobile application. Conducted user research, wireframing, high-fidelity mockups, and interactive prototype flows in Figma to minimize cart abandonment.",
     techStack: ["Figma", "User Research", "Wireframing"],
+    imageUrl: "/anywhere-beauty.png",
     githubUrl: "",
     liveUrl: "",
     role: "Lead UX/UI Designer",

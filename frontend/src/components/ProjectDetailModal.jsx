@@ -7,12 +7,22 @@ export default function ProjectDetailModal({ project, onClose }) {
       onClick={onClose}
     >
       <div
-        className="relative bg-[#020617] rounded-2xl w-full max-w-2xl overflow-hidden border border-white/15 shadow-2xl animate-slide-up flex flex-col"
+        className="relative rounded-2xl w-full max-w-2xl max-h-[calc(100vh-2rem)] overflow-y-auto border border-white/10 shadow-2xl animate-slide-up flex flex-col" style={{ background: 'rgba(9, 13, 22, 0.92)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Banner with gradient or Image (taller h-56) */}
-        <div className="relative h-56 bg-gradient-to-br from-[#020617] to-[#0c1426] flex items-center justify-center border-b border-white/10 overflow-hidden">
-          {project.imageUrl ? (
+        <div className="relative h-40 sm:h-56 bg-gradient-to-br from-[#090d16] to-[#0c1a2e] flex items-center justify-center border-b border-white/10 overflow-hidden">
+          {project.videoUrl ? (
+            <video
+              ref={(el) => { if (el) el.playbackRate = 2.0; }}
+              src={project.videoUrl}
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : project.imageUrl ? (
             <img
               src={project.imageUrl}
               alt={project.title}

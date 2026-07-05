@@ -94,17 +94,17 @@ export default function Projects() {
         </div>
 
         {!isAdmin ? (
-          <form onSubmit={handleUnlock} className="flex gap-2">
+          <form onSubmit={handleUnlock} className="w-full sm:w-auto flex gap-2 mt-4 sm:mt-0">
             <input
               type="password"
               placeholder="admin key"
               value={keyInput}
               onChange={(e) => setKeyInput(e.target.value)}
-              className="w-36 rounded-md border border-crimson/20 bg-surface/80 px-3 py-1.5 font-mono text-xs text-paper outline-none focus:border-ember focus:ring-1 focus:ring-crimson/20"
+              className="flex-1 sm:w-36 rounded-md border border-crimson/20 bg-surface/80 px-3 py-1.5 font-mono text-xs text-paper outline-none focus:border-ember focus:ring-1 focus:ring-crimson/20"
             />
             <button
               type="submit"
-              className="rounded-md border border-crimson/30 px-3 py-1.5 font-mono text-xs text-fog hover:text-ember hover:border-ember transition-colors"
+              className="rounded-md border border-crimson/30 px-4 py-1.5 font-mono text-xs text-fog hover:text-ember hover:border-ember transition-colors"
             >
               unlock
             </button>
@@ -115,7 +115,7 @@ export default function Projects() {
               setShowForm(true);
               setEditingProject(null);
             }}
-            className="btn-glow text-xs px-4 py-2"
+            className="btn-glow text-xs px-4 py-2 w-full sm:w-auto text-center"
           >
             <span>+ add project</span>
           </button>

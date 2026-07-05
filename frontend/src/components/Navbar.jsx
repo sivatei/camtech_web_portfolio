@@ -42,14 +42,15 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <ul className="flex flex-col gap-4 border-t border-blue-900/50 bg-[#020617] px-6 py-5 font-mono text-sm text-slate-300 md:hidden">
+        <ul className="animate-slide-up flex flex-col gap-4 border-t border-blue-900/40 bg-[#020617] px-6 py-5 font-mono text-sm text-slate-300 md:hidden shadow-lg shadow-blue-950/20">
           {links.map((link) => (
-            <li key={link.href}>
+            <li key={link.href} className="border-b border-slate-900/50 pb-2 last:border-0 last:pb-0">
               <a
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="hover:text-blue-400 transition-colors"
+                className="flex items-center gap-2 hover:text-blue-400 transition-colors py-1 group"
               >
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                 {link.label}
               </a>
             </li>

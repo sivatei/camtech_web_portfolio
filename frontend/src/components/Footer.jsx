@@ -40,13 +40,13 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 border-t border-crimson/15 mt-8">
+    <footer className="relative z-10 border-t border-blue-900/30 mt-8">
 
       {/* Top glow line */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
-          background: "linear-gradient(90deg, transparent, rgba(185,28,28,0.5) 30%, rgba(220,38,38,0.7) 50%, rgba(185,28,28,0.5) 70%, transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(37,99,235,0.5) 30%, rgba(59,130,246,0.7) 50%, rgba(37,99,235,0.5) 70%, transparent)",
         }}
       />
 
@@ -125,10 +125,10 @@ export default function Footer() {
         </div>
 
         {/* ── Divider ── */}
-        <div className="mt-10 h-px bg-gradient-to-r from-crimson/20 via-rose/10 to-transparent" />
+        <div className="mt-10 h-px bg-gradient-to-r from-blue-600/30 via-blue-400/15 to-transparent" />
 
         {/* ── Bottom bar ── */}
-        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <p className="font-mono text-xs text-fog/50">
             © {year}{" "}
             <span className="text-ember/80">Yim Sivatey</span>.
@@ -140,7 +140,7 @@ export default function Footer() {
           {/* Back to top */}
           <a
             href="#top"
-            className="flex items-center gap-1.5 font-mono text-xs text-fog/50 hover:text-ember transition-colors duration-200 group"
+            className="flex items-center justify-center sm:justify-start gap-1.5 font-mono text-xs text-fog/50 hover:text-ember transition-colors duration-200 group"
           >
             back to top
             <svg

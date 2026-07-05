@@ -4,37 +4,37 @@ const skillGroups = [
   {
     label: "Languages & Frameworks",
     skills: [
-      { name: "JavaScript",        pct: 70 },
-      { name: "Python",            pct: 72 },
-      { name: "Java",              pct: 75 },
-      { name: "C / C++",           pct: 80 },
-      { name: "C#",                pct: 60 },
+      { name: "JavaScript",        pct: 90 },
+      { name: "Python",            pct: 88 },
+      { name: "Java",              pct: 85 },
+      { name: "C / C++",           pct: 85 },
+      { name: "C#",                pct: 82 },
     ],
   },
   {
     label: "Frontend",
     skills: [
-      { name: "React",        pct: 85 },
-      { name: "Tailwind CSS", pct: 82 },
-      { name: "HTML / CSS",   pct: 88 },
-      { name: "Bootstrap",    pct: 75 },
+      { name: "React",        pct: 88 },
+      { name: "Tailwind CSS", pct: 85 },
+      { name: "HTML / CSS",   pct: 90 },
+      { name: "Bootstrap",    pct: 80 },
     ],
   },
   {
     label: "Backend & Data",
     skills: [
-      { name: "Node.js / Express", pct: 68 },
-      { name: "MongoDB",           pct: 65 },
-      { name: "MySQL",             pct: 62 },
-      { name: "REST APIs",         pct: 68 },
+      { name: "Node.js / Express", pct: 88 },
+      { name: "MongoDB",           pct: 85 },
+      { name: "MySQL",             pct: 84 },
+      { name: "REST APIs",         pct: 90 },
     ],
   },
   {
     label: "Tools & Platforms",
     skills: [
       { name: "Git / GitHub", pct: 85 },
-      { name: "Docker",       pct: 55 },
-      { name: "Figma",        pct: 78 },
+      { name: "Docker",       pct: 78 },
+      { name: "Figma",        pct: 86 },
     ],
   },
 ];

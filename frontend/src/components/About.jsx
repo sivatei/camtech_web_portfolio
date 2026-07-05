@@ -19,41 +19,39 @@ export default function About() {
       {/* ── Align Photo & Quick Facts side-by-side with customized column weights ── */}
       <div className="mt-8 grid gap-6 md:grid-cols-4 items-stretch">
         
-        {/* Photo Container styled exactly like a card (md:col-span-1 - smaller weight) */}
-        <div 
-          className="glass-card overflow-hidden flex items-center justify-center p-4 min-h-[320px] md:col-span-1"
-          style={{ background: "#edf2f7" }} /* Soft matte grey container to make picture bg not too white */
+        {/* Photo Container */}
+        <div
+          className="glass-card overflow-hidden relative min-h-[240px] md:min-h-[320px] md:col-span-1"
+          style={{ background: "#edf2f7" }}
         >
-          <div className="relative w-full h-full max-h-[300px] flex items-center justify-center">
-            <img
-              src={PHOTO_SRC}
-              alt="Yim Sivatey"
-              className="rounded-xl w-full h-full object-cover object-top scale-150 transition-transform duration-500 hover:scale-160"
-              style={{ mixBlendMode: "multiply", aspectRatio: "3/4" }}
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-                e.currentTarget.nextElementSibling.style.display = "flex";
+          <img
+            src={PHOTO_SRC}
+            alt="Yim Sivatey"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105 md:hover:scale-110"
+            style={{ mixBlendMode: "multiply", objectPosition: "50% 15%" }}
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+              e.currentTarget.nextElementSibling.style.display = "flex";
+            }}
+          />
+          {/* Fallback initials */}
+          <div
+            className="absolute inset-0 items-center justify-center flex-col gap-1"
+            style={{ display: "none" }}
+          >
+            <span
+              className="text-5xl font-display font-bold select-none"
+              style={{
+                background: "linear-gradient(135deg, #2563eb, #1e3a8a)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
               }}
-            />
-            {/* Fallback initials */}
-            <div
-              className="absolute inset-0 items-center justify-center flex-col gap-1"
-              style={{ display: "none" }}
             >
-              <span
-                className="text-5xl font-display font-bold select-none"
-                style={{
-                  background: "linear-gradient(135deg, #2563eb, #1e3a8a)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                YS
-              </span>
-              <span className="font-mono text-[10px] text-fog/60 uppercase tracking-widest">
-                add photo
-              </span>
-            </div>
+              YS
+            </span>
+            <span className="font-mono text-[10px] text-fog/60 uppercase tracking-widest">
+              add photo
+            </span>
           </div>
         </div>
 
@@ -74,10 +72,10 @@ export default function About() {
               ].map(({ dt, dd }) => (
                 <div
                   key={dt}
-                  className="flex justify-between gap-4 border-b border-slate-200 pb-2.5 last:border-0 last:pb-0"
+                  className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4 border-b border-slate-800 pb-2.5 last:border-0 last:pb-0"
                 >
-                  <dt className="text-fog font-medium">{dt}</dt>
-                  <dd className="text-right text-paper font-semibold">{dd}</dd>
+                  <dt className="text-fog font-medium text-xs sm:text-sm">{dt}</dt>
+                  <dd className="text-left sm:text-right text-paper font-semibold text-sm break-all sm:break-normal">{dd}</dd>
                 </div>
               ))}
             </dl>

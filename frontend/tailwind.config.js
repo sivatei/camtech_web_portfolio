@@ -4,21 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink:      "#ffffff", // Pure white background
-        surface:  "#ffffff", // Pure white for cards
-        surface2: "#f1f5f9", // Light slate for secondary cards/inputs
-        fog:      "#1e3a8a", // Navy blue for muted/secondary text
-        paper:    "#0f172a", // Deep navy/black for primary text
-        crimson:  "#1d4ed8", // Primary cobalt blue
-        rose:     "#3b82f6", // Vibrant blue
-        blood:    "#1e3a8a", // Dark navy blue
-        ember:    "#2563eb", // Electric blue
-        glow:     "#4f46e5", // Indigo glow accent
+        ink:      "#090d16", // Deep black-blue for page background
+        surface:  "#0c1524", // Sleek dark card background
+        surface2: "#172337", // Secondary slate cards / inputs
+        fog:      "#94a3b8", // Slate grey for muted/secondary labels
+        paper:    "#f8fafc", // Slate white for primary text
+        crimson:  "#3b82f6", // Cobalt blue accents
+        rose:     "#60a5fa", // Vibrant blue highlights
+        blood:    "#020617", // Deepest black background
+        ember:    "#3b82f6", // Electric blue accents
+        glow:     "#6366f1", // Indigo glow accent
       },
       fontFamily: {
-        display: ["'Google Sans Flex'", "sans-serif"],
-        body:    ["'Google Sans Flex'", "sans-serif"],
-        mono:    ["'JetBrains Mono'", "monospace"],
+        display: ["'Poppins'", "sans-serif"],
+        body:    ["'DM Sans'", "sans-serif"],
+        mono:    ["'Fira Code'", "monospace"],
       },
       keyframes: {
         "float-orb-1": {

@@ -33,11 +33,11 @@ const timeline = [
   },
   {
     period: "2025",
-    title: "Supermarket Mobile App Design",
+    title: "Anywhere Beauty App Design",
     org: "Personal Project",
     tags: ["Figma", "UX/UI Design", "Wireframing"],
     description:
-      "Designed a comprehensive UX/UI prototype for a modern supermarket shopping mobile application, focusing on intuitive checkout user flows.",
+      "Designed a comprehensive UX/UI prototype for a modern beauty shopping mobile application, focusing on intuitive checkout user flows.",
   },
   {
     period: "2025 - 2027",
