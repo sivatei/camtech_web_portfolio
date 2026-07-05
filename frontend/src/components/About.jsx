@@ -27,7 +27,7 @@ export default function About() {
           <img
             src={PHOTO_SRC}
             alt="Yim Sivatey"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105 md:hover:scale-110"
+            className="absolute inset-0 w-full h-full object-cover scale-110 transition-transform duration-500 hover:scale-125 md:hover:scale-125"
             style={{ mixBlendMode: "multiply", objectPosition: "50% 15%" }}
             onError={(e) => {
               e.currentTarget.style.display = "none";
@@ -58,7 +58,7 @@ export default function About() {
         {/* Quick facts (md:col-span-3 - larger weight) */}
         <div className="glass-card p-6 flex flex-col justify-between md:col-span-3">
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-ember mb-5">
+            <p className="font-mono text-xs uppercase tracking-widest text-rose mb-5">
               About me
             </p>
             <dl className="space-y-4 text-sm">
@@ -72,9 +72,9 @@ export default function About() {
               ].map(({ dt, dd }) => (
                 <div
                   key={dt}
-                  className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4 border-b border-slate-800 pb-2.5 last:border-0 last:pb-0"
+                  className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4 border-b border-slate-700 pb-2.5 last:border-0 last:pb-0"
                 >
-                  <dt className="text-fog font-medium text-xs sm:text-sm">{dt}</dt>
+                  <dt className="text-slate-300 font-medium text-xs sm:text-sm">{dt}</dt>
                   <dd className="text-left sm:text-right text-paper font-semibold text-sm break-all sm:break-normal">{dd}</dd>
                 </div>
               ))}

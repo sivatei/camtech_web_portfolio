@@ -18,7 +18,7 @@ export default function Navbar() {
           yim sivatey <span className="gradient-text">portfolio</span>
         </a>
 
-        <ul className="hidden gap-8 font-mono text-sm text-slate-300 md:flex">
+        <ul className="hidden gap-8 font-display font-medium uppercase tracking-wider text-xs text-slate-300 md:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a
@@ -42,7 +42,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <ul className="animate-slide-up flex flex-col gap-4 border-t border-blue-900/40 bg-[#020617] px-6 py-5 font-mono text-sm text-slate-300 md:hidden shadow-lg shadow-blue-950/20">
+        <ul className="animate-slide-up flex flex-col gap-4 border-t border-blue-900/40 bg-[#020617] px-6 py-5 font-display font-medium uppercase tracking-wider text-xs text-slate-300 md:hidden shadow-lg shadow-blue-950/20">
           {links.map((link) => (
             <li key={link.href} className="border-b border-slate-900/50 pb-2 last:border-0 last:pb-0">
               <a

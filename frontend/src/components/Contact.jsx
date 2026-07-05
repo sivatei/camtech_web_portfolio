@@ -17,7 +17,33 @@ export default function Contact() {
     setStatus("sending");
     setErrorMsg("");
     try {
-      await sendContactMessage(form);
+      // 1. Send email notification via Web3Forms
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "8e9ccb33-6e00-45f0-bd07-4984ef30b3f4",
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error(result.message || "Email service failed");
+      }
+
+      // 2. Save to database backup
+      try {
+        await sendContactMessage(form);
+      } catch (dbErr) {
+        console.warn("Could not save to DB, but email was sent.", dbErr);
+      }
+
       setStatus("success");
       setForm(initialForm);
     } catch (err) {

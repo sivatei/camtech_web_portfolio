@@ -69,7 +69,7 @@ export default function ProjectDetailModal({ project, onClose }) {
             <img
               src={project.imageUrl}
               alt={project.title}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
             />
           ) : (
             /* Big Project Initial */
